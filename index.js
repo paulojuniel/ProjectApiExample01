@@ -7,8 +7,6 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const app = express();
 
-
-
 //leitura do json / middleware 
 app.use(express.urlencoded({
   extended: true,
@@ -32,6 +30,7 @@ app.get('/', (request, response) => {
 //habilitando a porta de comnicação //
 const dbuser = process.env.MONGODB_USER;
 const dbpass = encodeURIComponent(process.env.MONGODB_PASS);
+
 mongoose
   .connect(
     `mongodb://${dbuser}:${dbpass}'@apicluster.uk8iufq.mongodb.net/?retryWrites=true&w=majority`)
